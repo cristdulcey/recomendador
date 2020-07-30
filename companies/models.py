@@ -1,5 +1,9 @@
 from django.db import models
 
+from persons.models import Supervisor,City,Client
+from services.models import Services
+
+
 class Company(models.Model):
     name = models.CharField(max_length=255)
     nit = models.BigIntegerField()
@@ -24,27 +28,27 @@ class BranchCompany (models.Model):
     schedule = models.TextField()
 
     class Meta:
-        verbose_name = "sucursal"
-        verbose_name_plural = "sucursales"
+        verbose_name = "Sucursal"
+        verbose_name_plural = "Sucursales"
 
     def __str__(self):
         return self.company.name
 
 class BranchServices (models.Model):
-#    services = models.ForeignKey(Services, on_delete=models.CASCADE)
+    services = models.ForeignKey(Services, on_delete=models.CASCADE)
     branch_company = models.ForeignKey(BranchCompany, on_delete=models.CASCADE)
     price = models.IntegerField()
 
     class Meta:
-      verbose_name = "rama servicio"
-      verbose_name_plural = "rama servicios"
+      verbose_name = "Rama Servicio"
+      verbose_name_plural = "Rama Servicios"
 
     def __str__(self):
         return self.branch_company.company.name
 
 class Qualification (models.Model):
-    #client = models.ForeignKey(Client, on_delete=models.CASCADE)
-#    score =
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+#   score =
     comment = models.TextField(max_length=255)
     branch_services = models.ForeignKey(BranchServices, on_delete=models.CASCADE)
 

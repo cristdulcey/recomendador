@@ -10,8 +10,8 @@ class Category(models.Model):
         null=True, blank=True, upload_to="categories",
         verbose_name="Icono de la categoría",
         help_text="Icono de la categoría")
-    category = models.ForeignKey(
-        Category, on_delete=models.DO_NOTHING,
+    parent = models.ForeignKey(
+        "self", on_delete=models.DO_NOTHING,
         verbose_name="Categoría padre",
         help_text="Categoría padre")
 
@@ -24,8 +24,9 @@ class Category(models.Model):
         return self.name
 
 
+
 class Services(models.Model):
-	category = models.ForeignKey(
+    category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING,
         verbose_name="Categoría del servicio",
         help_text="Categoría del servicio")
