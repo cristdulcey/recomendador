@@ -19,13 +19,13 @@ class Category(models.Model):
     class Meta:
         ordering = ["name"]
         verbose_name = "Categoría"
-        verbose_name_plural = "Categoría"
+        verbose_name_plural = "Categorías"
 
     def _str_(self):
         return self.name
 
 
-class Services(models.Model):
+class Service(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING,
         verbose_name="Categoría del servicio",

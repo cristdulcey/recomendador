@@ -1,5 +1,8 @@
 .idea/*
 .idea/
+db.sqlite3
+*.pyc
+*/migrations/0*
 
 companies/migrations/
 
