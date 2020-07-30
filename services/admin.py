@@ -3,9 +3,9 @@ from .models import Service, Category
 
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('parent_category', 'name',)
+    list_display = ('parent', 'name',)
     list_display_links = ('name',)
-    list_filter = ('parent_category', )
+    list_filter = ('parent', )
     search_fields = ('name', )
     list_per_page = 10
 

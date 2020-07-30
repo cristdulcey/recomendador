@@ -3,6 +3,17 @@
 db.sqlite3
 *.pyc
 */migrations/0*
+companies/__pycache__/
+
+companies/migrations/__pycache__/
+
+persons/migrations/__pycache__/
+
+services/__pycache__/
+
+*.sqlite3
+
+services/migrations/__pycache__/
 
 companies/migrations/
 
