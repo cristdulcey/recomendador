@@ -6,7 +6,7 @@ from django.db import models
 class Client(models.Model):
     phone = models.BigIntegerField()
     address = models.CharField(max_length=255, blank=True)
-    geolocation=models.CharField(max_length=255, blank=True)
+    geolocation = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -16,7 +16,7 @@ class Client(models.Model):
     def __str__(self):
         return self.user.username
 
-class Supervisor(models.Model):
+class Supervisor (models.Model):
     phone = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -29,8 +29,8 @@ class Supervisor(models.Model):
 
 
 class City(models.Model):
-    name=models.CharField(max_length=150)
-    department= models.CharField(max_length=150)
+    name = models.CharField(max_length=150)
+    department = models.CharField(max_length=150)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:

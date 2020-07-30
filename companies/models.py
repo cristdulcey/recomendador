@@ -1,4 +1,6 @@
 from django.db import models
+from persons.models import Supervisor, City, Client
+from services.models import Services
 
 from persons.models import Supervisor,City,Client
 from services.models import Services
