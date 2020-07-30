@@ -26,14 +26,16 @@ class Category(models.Model):
 
 
 class Services(models.Model):
-	category = models.ForeignKey(
+    category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING,
         verbose_name="Categoría del servicio",
         help_text="Categoría del servicio")
+
     name = models.CharField(
         max_length=200,
         verbose_name="Nombre del servicio",
         help_text="Nombre del servicio")
+
     description = models.TextField(
         null=True, blank=True,
         verbose_name="Descripción del servicio",
