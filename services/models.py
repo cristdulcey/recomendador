@@ -13,19 +13,20 @@ class Category(models.Model):
         help_text="Icono de la categoría")
     parent = models.ForeignKey(
         "self", on_delete=models.DO_NOTHING,
+        null=True, blank=True,
         verbose_name="Categoría padre",
         help_text="Categoría padre")
 
     class Meta:
         ordering = ["name"]
         verbose_name = "Categoría"
-        verbose_name_plural = "Categoría"
+        verbose_name_plural = "Categorías"
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 
-class Services(models.Model):
+class Service(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING,
         verbose_name="Categoría del servicio",
@@ -50,5 +51,5 @@ class Services(models.Model):
         verbose_name = "Servicio"
         verbose_name_plural = "Servicios"
 
-    def _str_(self):
+    def __str__(self):
         return self.name

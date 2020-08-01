@@ -2,10 +2,8 @@ from django.db import models
 from persons.models import Supervisor, City, Client
 from services.models import Services
 
-from persons.models import Supervisor, City, Client
-from services.models import Services
-
-
+from persons.models import Supervisor,City,Client
+from services.models import Service
 class Company(models.Model):
     name = models.CharField(max_length=255)
     nit = models.BigIntegerField()
@@ -37,7 +35,7 @@ class BranchCompany (models.Model):
         return self.company.name
 
 class BranchServices (models.Model):
-    services = models.ForeignKey(Services, on_delete=models.CASCADE)
+    services = models.ForeignKey(Service, on_delete=models.CASCADE)
     branch_company = models.ForeignKey(BranchCompany, on_delete=models.CASCADE)
     price = models.IntegerField()
 
