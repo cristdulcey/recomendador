@@ -1,2 +1,8 @@
 .idea/*
 .idea/
+
+companies/migrations/
+
+persons/migrations/
+
+services/migrations/

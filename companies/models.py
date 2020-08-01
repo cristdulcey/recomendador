@@ -1,6 +1,8 @@
 from django.db import models
+from persons.models import Supervisor, City, Client
+from services.models import Services
 
-from persons.models import Supervisor,City,Client
+from persons.models import Supervisor, City, Client
 from services.models import Services
 
 
@@ -22,10 +24,10 @@ class BranchCompany (models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     supervisor = models.ForeignKey(Supervisor, on_delete=models.CASCADE)
-    phone = models.BigIntegerField()
-    geolocation =models.CharField(max_length=255)
-    address = models.CharField(max_length=255)
-    schedule = models.TextField()
+    phone = models.BigIntegerField(blank=True, null=True)
+    geolocation =models.CharField(max_length=255, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    schedule = models.TextField(max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = "Sucursal"
@@ -48,7 +50,7 @@ class BranchServices (models.Model):
 
 class Qualification (models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-#   score =
+    score = models.IntegerField(blank=True)
     comment = models.TextField(max_length=255)
     branch_services = models.ForeignKey(BranchServices, on_delete=models.CASCADE)
 
