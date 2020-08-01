@@ -15,7 +15,7 @@ class Category(models.Model):
         "self", on_delete=models.DO_NOTHING,
         null=True, blank=True,
         verbose_name="Categoría padre",
-        help_text="Categoría padre")
+        help_text="Categoría padre", blank=True),
 
     class Meta:
         ordering = ["name"]
