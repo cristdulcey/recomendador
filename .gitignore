@@ -15,6 +15,8 @@ services/__pycache__/
 
 services/migrations/__pycache__/
 
+static/
+
 companies/migrations/
 
 persons/migrations/
