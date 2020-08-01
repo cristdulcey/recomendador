@@ -17,7 +17,7 @@ class City(models.Model):
 class Client(models.Model):
     phone = models.BigIntegerField()
     address = models.CharField(max_length=255, blank=True)
-    geolocation=models.CharField(max_length=255, blank=True)
+    geolocation = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
 
@@ -28,13 +28,26 @@ class Client(models.Model):
     def __str__(self):
         return self.user.username
 
-class Supervisor(models.Model):
+class Supervisor (models.Model):
     phone = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Supervisor"
         verbose_name_plural = "Supervisores"
+
+    def __str__(self):
+        return self.user.username
+
+
+class City(models.Model):
+    name = models.CharField(max_length=150)
+    department = models.CharField(max_length=150)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Ciudad"
+        verbose_name_plural = "Ciudades"
 
     def __str__(self):
         return self.user.username
