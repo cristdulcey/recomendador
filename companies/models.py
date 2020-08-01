@@ -50,7 +50,7 @@ class BranchServices (models.Model):
 
 class Qualification (models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    score = models.IntegerField()
+    score = models.IntegerField(blank=True)
     comment = models.TextField(max_length=255)
     branch_services = models.ForeignKey(BranchServices, on_delete=models.CASCADE)
 
