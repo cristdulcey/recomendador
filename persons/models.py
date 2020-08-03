@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from geoposition.fields import GeopositionField
 # Create your models here.
 
 class City(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     department = models.CharField(max_length=150)
 
@@ -15,11 +16,12 @@ class City(models.Model):
         return self.name
 
 class Client(models.Model):
-    phone = models.BigIntegerField()
-    address = models.CharField(max_length=255, blank=True)
-    geolocation = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    phone = models.BigIntegerField()
+    address = models.CharField(max_length=255, blank=True, null=True)
+    geolocation = GeopositionField()
+
 
     class Meta:
         verbose_name = "Cliente"
@@ -29,25 +31,13 @@ class Client(models.Model):
         return self.user.username
 
 class Supervisor (models.Model):
-    phone = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    phone = models.BigIntegerField()
+
 
     class Meta:
         verbose_name = "Supervisor"
         verbose_name_plural = "Supervisores"
-
-    def __str__(self):
-        return self.user.username
-
-
-class City(models.Model):
-    name = models.CharField(max_length=150)
-    department = models.CharField(max_length=150)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Ciudad"
-        verbose_name_plural = "Ciudades"
 
     def __str__(self):
         return self.user.username
