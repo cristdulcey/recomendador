@@ -10,14 +10,17 @@ from persons.models import Client, Supervisor, City
 class QualificationInlines(admin.StackedInline):
     model = Qualification
     extra = 0
+    raw_id_fields = ("branch_services",)
 
 class ClientInlines(admin.StackedInline):
     model = Client
     extra = 0
+    raw_id_fields = ("city", "user")
 
 class BranchCompanyInlines(admin.StackedInline):
     model =BranchCompany
     extra = 0
+    raw_id_fields = ("company", "city", "supervisor")
 
 @admin.register(Client)
 class AdminClient(admin.ModelAdmin):
