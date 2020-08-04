@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'persons',
     'companies',
     'services',
+    'geoposition',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'es-co'
-
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBFBJihQMxpJg6rqtsKom9B6cO2nWQd4tc'
 TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True

@@ -1,6 +1,5 @@
 from django.db import models
-from persons.models import Supervisor, City, Client
-from services.models import Services
+from geoposition.fields import GeopositionField
 
 from persons.models import Supervisor,City,Client
 from services.models import Service
@@ -24,7 +23,7 @@ class BranchCompany (models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     supervisor = models.ForeignKey(Supervisor, on_delete=models.CASCADE)
     phone = models.BigIntegerField(blank=True, null=True)
-    geolocation =models.CharField(max_length=255, blank=True, null=True)
+    geolocation =GeopositionField()
     address = models.CharField(max_length=255, blank=True, null=True)
     schedule = models.TextField(max_length=255, blank=True, null=True)
 
