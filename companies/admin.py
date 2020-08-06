@@ -13,6 +13,9 @@ class BranchServicesInline(admin.StackedInline):
     extra = 0
     raw_id_fields = ("services", "branch_company")
 
+class QualificationInlines(admin.StackedInline):
+    model = Qualification
+    extra = 0
 
 @admin.register(Company)
 class AdminCompany(admin.ModelAdmin):
@@ -24,15 +27,11 @@ class AdminCompany(admin.ModelAdmin):
 
 @admin.register(BranchCompany)
 class AdmniBranchCompany(admin.ModelAdmin):
-    list_display = ("company", "city", "address",)
+    list_display = ("company", "city", "address", "geolocation")
     list_display_links = ("company", "city", "address",)
     search_fields = ("city", "company",)
     list_filter = ("supervisor",)
     inlines = [BranchServicesInline]
-
-class QualificationInlines(admin.StackedInline):
-    model = Qualification
-    extra = 0
 
 @admin.register(BranchServices)
 class AdmniBranchServices(admin.ModelAdmin):
@@ -50,4 +49,3 @@ class AdmniQualification(admin.ModelAdmin):
     raw_id_fields = ("client", "branch_services")
     search_fields = ("client", "score")
     list_filter = ("comment", "score")
-    #inlines = (NotificationInline,),

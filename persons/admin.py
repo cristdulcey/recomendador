@@ -10,21 +10,24 @@ from persons.models import Client, Supervisor, City
 class QualificationInlines(admin.StackedInline):
     model = Qualification
     extra = 0
+    raw_id_fields = ("branch_services",)
 
 class ClientInlines(admin.StackedInline):
     model = Client
     extra = 0
+    raw_id_fields = ("city", "user")
 
 class BranchCompanyInlines(admin.StackedInline):
     model =BranchCompany
     extra = 0
+    raw_id_fields = ("company", "city", "supervisor")
 
 @admin.register(Client)
 class AdminClient(admin.ModelAdmin):
     list_display = ("user", "phone")
     list_display_links = ("user", "phone")
-    raw_id_fields = ("user","city")
-    search_fields = ("phone","address")
+    raw_id_fields = ("user", "city")
+    search_fields = ("phone", "address")
     list_filter = ("user",)
     inlines =(QualificationInlines,)
 
@@ -41,8 +44,8 @@ class AdminSupervisor(admin.ModelAdmin):
 
 @admin.register(City)
 class AdminCity(admin.ModelAdmin):
-    list_display = ("name","department")
-    list_display_links = ("name","department")
+    list_display = ("name", "department")
+    list_display_links = ("name", "department")
     search_fields = ("name",)
     list_filter = ("name",)
-    inlines = (BranchCompanyInlines,ClientInlines)
+    inlines = (BranchCompanyInlines, ClientInlines,)

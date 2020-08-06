@@ -41,6 +41,7 @@ class Service(models.Model):
         null=True, blank=True,
         verbose_name="Descripción del servicio",
         help_text="Descripción del servicio")
+
     photo = models.ImageField(
         null=True, blank=True, upload_to="services",
         verbose_name="Foto del servicio",
