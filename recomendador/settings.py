@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 's9_u(-poo_q%q_p*zizdnj=%x@4pw75fbbd3rzfrm6-6squ%fo'
 
 #Geooposition
-GEOPOSITION_GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY'
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDQ34caOnNeWYE265O2Y-9X8Siob68o3Xs'
 
 GEOPOSITION_MAP_OPTIONS = {
     'minZoom': 3,
@@ -50,10 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'geoposition',
     'persons',
     'companies',
     'services',
+    'geoposition',
 ]
 
 MIDDLEWARE = [

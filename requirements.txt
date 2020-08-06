@@ -1,5 +1,5 @@
 Django==2.2.13
-django-geoposition==0.3.0
+django-geoposition-2==0.3.11
 django-jet==1.0.8
 Pillow==7.2.0
 psycopg2==2.8.5
