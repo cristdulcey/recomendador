@@ -27,8 +27,9 @@ class AdminCompany(admin.ModelAdmin):
 
 @admin.register(BranchCompany)
 class AdmniBranchCompany(admin.ModelAdmin):
-    list_display = ("company", "city", "address", "geolocation")
+    list_display = ("company", "city", "address",)
     list_display_links = ("company", "city", "address",)
+    raw_id_fields = ("company", "city","supervisor")
     search_fields = ("city", "company",)
     list_filter = ("supervisor",)
     inlines = [BranchServicesInline]

@@ -36,7 +36,7 @@ class AdminClient(admin.ModelAdmin):
 class AdminSupervisor(admin.ModelAdmin):
     list_display = ("user", "phone")
     list_display_links = ("user", "phone")
-    raw_id_fields = ("user",)
+    raw_id_fields = ("user", "city")
     search_fields = ("phone",)
     list_filter = ("user",)
     inlines = (BranchCompanyInlines,)
@@ -46,6 +46,7 @@ class AdminSupervisor(admin.ModelAdmin):
 class AdminCity(admin.ModelAdmin):
     list_display = ("name", "department")
     list_display_links = ("name", "department")
+    raw_id_fields = ("user",)
     search_fields = ("name",)
     list_filter = ("name",)
     inlines = (BranchCompanyInlines, ClientInlines,)
