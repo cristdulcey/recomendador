@@ -5,6 +5,7 @@ from .models import Service, Category
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('parent', 'name',)
     list_display_links = ('name',)
+    raw_id_fields = ("parent",)
     list_filter = ('parent', )
     search_fields = ('name', )
     list_per_page = 10

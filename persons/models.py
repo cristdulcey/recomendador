@@ -34,7 +34,9 @@ class Client(models.Model):
 
 class Supervisor (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
     phone = models.BigIntegerField()
+
 
 
     class Meta:
