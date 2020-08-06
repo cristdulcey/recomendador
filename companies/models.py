@@ -1,6 +1,5 @@
 from django.db import models
 from geoposition.fields import GeopositionField
-
 from persons.models import Supervisor,City,Client
 from services.models import Service
 
@@ -48,7 +47,7 @@ class BranchServices (models.Model):
 
 class Qualification (models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    score = models.IntegerField(blank=True)
+    score = models.IntegerField(blank=True, null=True)
     comment = models.TextField(max_length=255)
     branch_services = models.ForeignKey(BranchServices, on_delete=models.CASCADE)
 

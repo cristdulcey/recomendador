@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('category', 'name',)
     list_display_links = ('name',)
-    list_filter = ('category', )
+    list_filter = ('category',)
     search_fields = ('name', 'category__name', )
     list_per_page = 10
 
