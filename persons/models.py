@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from geoposition.fields import GeopositionField
 # Create your models here.
+from geoposition.fields import GeopositionField
+
 
 class City(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

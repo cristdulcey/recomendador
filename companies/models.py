@@ -1,7 +1,8 @@
 from django.db import models
-from persons.models import Supervisor, City, Client
-from services.models import Service
 from geoposition.fields import GeopositionField
+from persons.models import Supervisor,City,Client
+from services.models import Service
+
 class Company(models.Model):
     name = models.CharField(max_length=255)
     nit = models.BigIntegerField()
