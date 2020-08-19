@@ -17,15 +17,24 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.routers import SimpleRouter
 
 from persons import views
 from persons.views import HomeView
+from persons.views_api import UserViewSet
+
+router = routers.DefaultRouter()
+router.register('users', UserViewSet)
 
 urlpatterns = [
+
     path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name="home"),
     #path('hello/', views.HelloView.as_view(), name='hello'),
-    path('api-token-auth/', obtain_auth_token)
+    path('api/', include(router.urls)),
+    path('api-token-auth/', obtain_auth_token),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
