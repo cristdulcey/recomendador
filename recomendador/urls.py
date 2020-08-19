@@ -23,11 +23,12 @@ from rest_framework.routers import SimpleRouter
 
 from persons import views
 from persons.views import HomeView
-from persons.views_api import UserViewSet
+from persons.views_api import UserViewSet, CityViewSet, ClientViewSet
 
 router = routers.DefaultRouter()
 router.register('users', UserViewSet)
-
+router.register("citys", CityViewSet)
+router.register("clients", ClientViewSet)
 urlpatterns = [
 
     path('jet/', include('jet.urls', 'jet')),
