@@ -4,7 +4,8 @@ from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 
-from persons.serializers import UserSerializer
+from persons.models import City, Client
+from persons.serializers import UserSerializer, CitySerializer, ClientSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -16,3 +17,15 @@ class UserViewSet(viewsets.ModelViewSet):
     #     "user__username", "user__first_name", "user__last_name", "user__email"
     # ]
     # filterset_fields = ["person__id",]
+
+class CityViewSet(viewsets.ModelViewSet):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    permission_classes = (IsAuthenticated,)
+    filter_backends = [SearchFilter, DjangoFilterBackend, ]
+
+class ClientViewSet(viewsets.ModelViewSet):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+    permission_classes = (IsAuthenticated,)
+    filter_backends = [SearchFilter, DjangoFilterBackend, ]
