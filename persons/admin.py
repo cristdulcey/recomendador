@@ -46,7 +46,6 @@ class AdminSupervisor(admin.ModelAdmin):
 class AdminCity(admin.ModelAdmin):
     list_display = ("name", "department")
     list_display_links = ("name", "department")
-    raw_id_fields = ("user",)
     search_fields = ("name",)
     list_filter = ("name",)
     inlines = (BranchCompanyInlines, ClientInlines,)
