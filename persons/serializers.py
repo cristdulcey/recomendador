@@ -13,9 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
-        exclude = (
-            "user",
-        )
+        fields = "__all__"
 
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
