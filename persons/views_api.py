@@ -4,8 +4,8 @@ from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 
-from persons.models import City, Client
-from persons.serializers import UserSerializer, CitySerializer, ClientSerializer
+from persons.models import City, Client, Supervisor
+from persons.serializers import UserSerializer, CitySerializer, ClientSerializer, SupervisorSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -27,5 +27,11 @@ class CityViewSet(viewsets.ModelViewSet):
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
+    permission_classes = (IsAuthenticated,)
+    filter_backends = [SearchFilter, DjangoFilterBackend, ]
+
+class SupervisorViewSet(viewsets.ModelViewSet):
+    queryset = Supervisor.objects.all()
+    serializer_class = SupervisorSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = [SearchFilter, DjangoFilterBackend, ]
