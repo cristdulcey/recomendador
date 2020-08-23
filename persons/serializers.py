@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from persons.models import City, Client
+from persons.models import City, Client, Supervisor
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
@@ -19,5 +19,10 @@ class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = (
-            "user", "city", "phone", "address",
+            "id", "user", "city", "phone", "address",
         )
+
+class SupervisorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Supervisor
+        fields = "__all__"
