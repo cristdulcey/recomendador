@@ -21,6 +21,7 @@ from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import SimpleRouter
 
+from companies.views_api import CompanyViewSet, BranchCompanyViewSet, BranchServicesViewSet, QualificationViewSet
 from persons import views
 from persons.views import HomeView
 from services.views_api import CategoryViewSet, ServiceViewSet
@@ -33,6 +34,11 @@ router.register("clients", ClientViewSet)
 router.register("categories", CategoryViewSet)
 router.register("services", ServiceViewSet)
 router.register("supervisors", SupervisorViewSet)
+router.register("companies", CompanyViewSet)
+router.register("branchcompanies", BranchCompanyViewSet)
+router.register("branchservices", BranchServicesViewSet)
+router.register("qualifications", QualificationViewSet)
+
 
 urlpatterns = [
 
